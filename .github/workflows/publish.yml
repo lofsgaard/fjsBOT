@@ -11,7 +11,7 @@ with:
 registry: ghcr.io
 username: ${{ github.actor }}
 password: ${{ secrets.GITHUB_TOKEN }}
-- name: Build the hello-docker Docker image
+- name: fjsbotpush
 run: |
        docker build . --tag ghcr.io/kifsgaard/fjsbot:latest
        docker run ghcr.io/kifsgaard/fjsbot:latest
