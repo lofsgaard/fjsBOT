@@ -1,4 +1,4 @@
-name: Deploy Images to GHCR
+name: Deploy Images to GHCR then deploy on VPS
 
   
 on:
@@ -31,3 +31,4 @@ jobs:
           host: ${{ secrets.HOST }}
           username: root
           key: ${{ secrets.KEY}}
+          script: whoami
