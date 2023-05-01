@@ -3,6 +3,7 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app/fjsBOT
 
+RUN python3 -m pip install --upgrade pip
 RUN pip install poetry
 
 COPY pyproject.toml .
