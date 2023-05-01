@@ -7,7 +7,7 @@ on:
       - main
       
 jobs:
-      push-store-image:
+      build:
         runs-on: ubuntu-latest
         steps:
           - name: 'Checkout GitHub Action'
@@ -23,4 +23,12 @@ jobs:
           - name: 'Build Inventory Image'
             run: |
               docker build . --tag ghcr.io/lofsgaard/fjsbot:latest
-              docker push ghcr.io/lofsgaard/fjsbot:latest              
+              docker push ghcr.io/lofsgaard/fjsbot:latest
+              
+          - name: ls -a via OPEN SSH Private Key
+            uses: garygrossgarten/github-action-ssh@release
+            with:
+              command: ls -a
+              host: ${{ secrets.HOST }}
+              username: ${{ secrets.USERNAME }}
+              privateKey: ${{ secrets.PRIVATE_KEY}}
