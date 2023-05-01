@@ -25,10 +25,9 @@ jobs:
           docker build . --tag ghcr.io/lofsgaard/fjsbot:latest
           docker push ghcr.io/lofsgaard/fjsbot:latest
 
-      - name: ls -a via OPEN SSH Private Key
-        uses: garygrossgarten/github-action-ssh@release
+      - name: SSH Remote Commands
+        uses: appleboy/ssh-action@v0.1.10
         with:
-          command: ls -a
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+          username: root
+          privateKey: ${{ secrets.KEY}}
