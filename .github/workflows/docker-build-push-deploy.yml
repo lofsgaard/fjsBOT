@@ -31,4 +31,4 @@ jobs:
           host: ${{ secrets.HOST }}
           username: root
           key: ${{ secrets.KEY}}
-          script: whoami
+          script: ./publish_docker.sh
