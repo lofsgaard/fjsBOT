@@ -15,6 +15,7 @@ class Rabiat(commands.Cog):
     @app_commands.command(name='rekruttering')
     @commands.has_role("Vaktmester")
     async def rekruttering(self, interaction: discord.Interaction):
+        await interaction.response.send_message('Channels updated', ephemeral=True)
         informasjon = self.bot.get_channel(1103279948254416956)
         await informasjon.purge()
         rekrutteringc = self.bot.get_channel(1103280124847214592)
@@ -28,7 +29,6 @@ class Rabiat(commands.Cog):
         embed.add_field(name='Team Oljefondet', value=classes_of(), inline=True)
         embed.add_field(name='Eksepsjonelle spillere vil alltid vurderes, uavhengig av class', value='', inline=False)
         await rekrutteringc.send(embed=embed)
-        await interaction.response.send_message('Channels updated', ephemeral=True)
 
 
 async def setup(bot) -> None:
