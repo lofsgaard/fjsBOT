@@ -14,8 +14,9 @@ class Tools(commands.Cog):
     @app_commands.command(name='clear')
     @commands.has_role("Vaktmester")
     async def clear(self, interaction: discord.Interaction):
-        await interaction.channel.purge(limit=100)
         await interaction.response.send_message('Channel purged', ephemeral=True)
+        channel = interaction.channel
+        await channel.purge()
 
 
 async def setup(bot) -> None:
